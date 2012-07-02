@@ -1,0 +1,445 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B638739B15A21D1C0055AC15 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B638739A15A21D1C0055AC15 /* UIKit.framework */; };
+		B638739D15A21D1C0055AC15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B638739C15A21D1C0055AC15 /* Foundation.framework */; };
+		B638739F15A21D1C0055AC15 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B638739E15A21D1C0055AC15 /* CoreGraphics.framework */; };
+		B63873A515A21D1C0055AC15 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B63873A315A21D1C0055AC15 /* InfoPlist.strings */; };
+		B63873A715A21D1C0055AC15 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B63873A615A21D1C0055AC15 /* main.m */; };
+		B63873AB15A21D1C0055AC15 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B63873AA15A21D1C0055AC15 /* AppDelegate.m */; };
+		B63873AE15A21D1C0055AC15 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B63873AC15A21D1C0055AC15 /* MainStoryboard.storyboard */; };
+		B63873B115A21D1C0055AC15 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B63873B015A21D1C0055AC15 /* ViewController.m */; };
+		B63873B915A21D1C0055AC15 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63873B815A21D1C0055AC15 /* SenTestingKit.framework */; };
+		B63873BA15A21D1C0055AC15 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B638739A15A21D1C0055AC15 /* UIKit.framework */; };
+		B63873BB15A21D1C0055AC15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B638739C15A21D1C0055AC15 /* Foundation.framework */; };
+		B63873C315A21D1C0055AC15 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B63873C115A21D1C0055AC15 /* InfoPlist.strings */; };
+		B63873C615A21D1C0055AC15 /* Bill_PayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B63873C515A21D1C0055AC15 /* Bill_PayTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B63873BC15A21D1C0055AC15 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B638738D15A21D1C0055AC15 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B638739515A21D1C0055AC15;
+			remoteInfo = "Bill Pay";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B638739615A21D1C0055AC15 /* Bill Pay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bill Pay.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B638739A15A21D1C0055AC15 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B638739C15A21D1C0055AC15 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B638739E15A21D1C0055AC15 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B63873A215A21D1C0055AC15 /* Bill Pay-Info.plist */ = {isa = PBXFileReference; path = "Bill Pay-Info.plist"; sourceTree = "<group>"; };
+		B63873A415A21D1C0055AC15 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B63873A615A21D1C0055AC15 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B63873A815A21D1C0055AC15 /* Bill Pay-Prefix.pch */ = {isa = PBXFileReference; path = "Bill Pay-Prefix.pch"; sourceTree = "<group>"; };
+		B63873A915A21D1C0055AC15 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		B63873AA15A21D1C0055AC15 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B63873AD15A21D1C0055AC15 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		B63873AF15A21D1C0055AC15 /* ViewController.h */ = {isa = PBXFileReference; path = ViewController.h; sourceTree = "<group>"; };
+		B63873B015A21D1C0055AC15 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		B63873B715A21D1C0055AC15 /* Bill PayTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bill PayTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B63873B815A21D1C0055AC15 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		B63873C015A21D1C0055AC15 /* Bill PayTests-Info.plist */ = {isa = PBXFileReference; path = "Bill PayTests-Info.plist"; sourceTree = "<group>"; };
+		B63873C215A21D1C0055AC15 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B63873C415A21D1C0055AC15 /* Bill_PayTests.h */ = {isa = PBXFileReference; path = Bill_PayTests.h; sourceTree = "<group>"; };
+		B63873C515A21D1C0055AC15 /* Bill_PayTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Bill_PayTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B638739315A21D1C0055AC15 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B638739B15A21D1C0055AC15 /* UIKit.framework in Frameworks */,
+				B638739D15A21D1C0055AC15 /* Foundation.framework in Frameworks */,
+				B638739F15A21D1C0055AC15 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B63873B315A21D1C0055AC15 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B63873B915A21D1C0055AC15 /* SenTestingKit.framework in Frameworks */,
+				B63873BA15A21D1C0055AC15 /* UIKit.framework in Frameworks */,
+				B63873BB15A21D1C0055AC15 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B638738B15A21D1C0055AC15 = {
+			isa = PBXGroup;
+			children = (
+				B63873A015A21D1C0055AC15 /* Bill Pay */,
+				B63873BE15A21D1C0055AC15 /* Bill PayTests */,
+				B638739915A21D1C0055AC15 /* Frameworks */,
+				B638739715A21D1C0055AC15 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B638739715A21D1C0055AC15 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B638739615A21D1C0055AC15 /* Bill Pay.app */,
+				B63873B715A21D1C0055AC15 /* Bill PayTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B638739915A21D1C0055AC15 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B638739A15A21D1C0055AC15 /* UIKit.framework */,
+				B638739C15A21D1C0055AC15 /* Foundation.framework */,
+				B638739E15A21D1C0055AC15 /* CoreGraphics.framework */,
+				B63873B815A21D1C0055AC15 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B63873A015A21D1C0055AC15 /* Bill Pay */ = {
+			isa = PBXGroup;
+			children = (
+				B63873A915A21D1C0055AC15 /* AppDelegate.h */,
+				B63873AA15A21D1C0055AC15 /* AppDelegate.m */,
+				B63873AC15A21D1C0055AC15 /* MainStoryboard.storyboard */,
+				B63873AF15A21D1C0055AC15 /* ViewController.h */,
+				B63873B015A21D1C0055AC15 /* ViewController.m */,
+				B63873A115A21D1C0055AC15 /* Supporting Files */,
+			);
+			path = "Bill Pay";
+			sourceTree = "<group>";
+		};
+		B63873A115A21D1C0055AC15 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B63873A215A21D1C0055AC15 /* Bill Pay-Info.plist */,
+				B63873A315A21D1C0055AC15 /* InfoPlist.strings */,
+				B63873A615A21D1C0055AC15 /* main.m */,
+				B63873A815A21D1C0055AC15 /* Bill Pay-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B63873BE15A21D1C0055AC15 /* Bill PayTests */ = {
+			isa = PBXGroup;
+			children = (
+				B63873C415A21D1C0055AC15 /* Bill_PayTests.h */,
+				B63873C515A21D1C0055AC15 /* Bill_PayTests.m */,
+				B63873BF15A21D1C0055AC15 /* Supporting Files */,
+			);
+			path = "Bill PayTests";
+			sourceTree = "<group>";
+		};
+		B63873BF15A21D1C0055AC15 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B63873C015A21D1C0055AC15 /* Bill PayTests-Info.plist */,
+				B63873C115A21D1C0055AC15 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B638739515A21D1C0055AC15 /* Bill Pay */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B63873C915A21D1C0055AC15 /* Build configuration list for PBXNativeTarget "Bill Pay" */;
+			buildPhases = (
+				B638739215A21D1C0055AC15 /* Sources */,
+				B638739315A21D1C0055AC15 /* Frameworks */,
+				B638739415A21D1C0055AC15 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Bill Pay";
+			productName = "Bill Pay";
+			productReference = B638739615A21D1C0055AC15 /* Bill Pay.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B63873B615A21D1C0055AC15 /* Bill PayTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B63873CC15A21D1C0055AC15 /* Build configuration list for PBXNativeTarget "Bill PayTests" */;
+			buildPhases = (
+				B63873B215A21D1C0055AC15 /* Sources */,
+				B63873B315A21D1C0055AC15 /* Frameworks */,
+				B63873B415A21D1C0055AC15 /* Resources */,
+				B63873B515A21D1C0055AC15 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B63873BD15A21D1C0055AC15 /* PBXTargetDependency */,
+			);
+			name = "Bill PayTests";
+			productName = "Bill PayTests";
+			productReference = B63873B715A21D1C0055AC15 /* Bill PayTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B638738D15A21D1C0055AC15 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = Ridejoy;
+			};
+			buildConfigurationList = B638739015A21D1C0055AC15 /* Build configuration list for PBXProject "Bill Pay" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B638738B15A21D1C0055AC15;
+			productRefGroup = B638739715A21D1C0055AC15 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B638739515A21D1C0055AC15 /* Bill Pay */,
+				B63873B615A21D1C0055AC15 /* Bill PayTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B638739415A21D1C0055AC15 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B63873A515A21D1C0055AC15 /* InfoPlist.strings in Resources */,
+				B63873AE15A21D1C0055AC15 /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B63873B415A21D1C0055AC15 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B63873C315A21D1C0055AC15 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B63873B515A21D1C0055AC15 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B638739215A21D1C0055AC15 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B63873A715A21D1C0055AC15 /* main.m in Sources */,
+				B63873AB15A21D1C0055AC15 /* AppDelegate.m in Sources */,
+				B63873B115A21D1C0055AC15 /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B63873B215A21D1C0055AC15 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B63873C615A21D1C0055AC15 /* Bill_PayTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B63873BD15A21D1C0055AC15 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B638739515A21D1C0055AC15 /* Bill Pay */;
+			targetProxy = B63873BC15A21D1C0055AC15 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B63873A315A21D1C0055AC15 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B63873A415A21D1C0055AC15 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B63873AC15A21D1C0055AC15 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B63873AD15A21D1C0055AC15 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		B63873C115A21D1C0055AC15 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B63873C215A21D1C0055AC15 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B63873C715A21D1C0055AC15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		B63873C815A21D1C0055AC15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B63873CA15A21D1C0055AC15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Bill Pay/Bill Pay-Prefix.pch";
+				INFOPLIST_FILE = "Bill Pay/Bill Pay-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B63873CB15A21D1C0055AC15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Bill Pay/Bill Pay-Prefix.pch";
+				INFOPLIST_FILE = "Bill Pay/Bill Pay-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		B63873CD15A21D1C0055AC15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Bill Pay.app/Bill Pay";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Bill Pay/Bill Pay-Prefix.pch";
+				INFOPLIST_FILE = "Bill PayTests/Bill PayTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		B63873CE15A21D1C0055AC15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Bill Pay.app/Bill Pay";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Bill Pay/Bill Pay-Prefix.pch";
+				INFOPLIST_FILE = "Bill PayTests/Bill PayTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B638739015A21D1C0055AC15 /* Build configuration list for PBXProject "Bill Pay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B63873C715A21D1C0055AC15 /* Debug */,
+				B63873C815A21D1C0055AC15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B63873C915A21D1C0055AC15 /* Build configuration list for PBXNativeTarget "Bill Pay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B63873CA15A21D1C0055AC15 /* Debug */,
+				B63873CB15A21D1C0055AC15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B63873CC15A21D1C0055AC15 /* Build configuration list for PBXNativeTarget "Bill PayTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B63873CD15A21D1C0055AC15 /* Debug */,
+				B63873CE15A21D1C0055AC15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B638738D15A21D1C0055AC15 /* Project object */;
+}
