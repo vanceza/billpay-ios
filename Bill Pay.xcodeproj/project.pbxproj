@@ -14,12 +14,14 @@
 		B63873A715A21D1C0055AC15 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B63873A615A21D1C0055AC15 /* main.m */; };
 		B63873AB15A21D1C0055AC15 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B63873AA15A21D1C0055AC15 /* AppDelegate.m */; };
 		B63873AE15A21D1C0055AC15 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B63873AC15A21D1C0055AC15 /* MainStoryboard.storyboard */; };
-		B63873B115A21D1C0055AC15 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B63873B015A21D1C0055AC15 /* ViewController.m */; };
+		B63873B115A21D1C0055AC15 /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B63873B015A21D1C0055AC15 /* AddViewController.m */; };
 		B63873B915A21D1C0055AC15 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63873B815A21D1C0055AC15 /* SenTestingKit.framework */; };
 		B63873BA15A21D1C0055AC15 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B638739A15A21D1C0055AC15 /* UIKit.framework */; };
 		B63873BB15A21D1C0055AC15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B638739C15A21D1C0055AC15 /* Foundation.framework */; };
 		B63873C315A21D1C0055AC15 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B63873C115A21D1C0055AC15 /* InfoPlist.strings */; };
 		B63873C615A21D1C0055AC15 /* Bill_PayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B63873C515A21D1C0055AC15 /* Bill_PayTests.m */; };
+		B63873D515A373740055AC15 /* Bill.m in Sources */ = {isa = PBXBuildFile; fileRef = B63873D415A373740055AC15 /* Bill.m */; };
+		B63873DC15A377610055AC15 /* BillItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B63873DB15A377610055AC15 /* BillItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,21 +39,25 @@
 		B638739A15A21D1C0055AC15 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B638739C15A21D1C0055AC15 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B638739E15A21D1C0055AC15 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		B63873A215A21D1C0055AC15 /* Bill Pay-Info.plist */ = {isa = PBXFileReference; path = "Bill Pay-Info.plist"; sourceTree = "<group>"; };
+		B63873A215A21D1C0055AC15 /* Bill Pay-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Bill Pay-Info.plist"; sourceTree = "<group>"; };
 		B63873A415A21D1C0055AC15 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B63873A615A21D1C0055AC15 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		B63873A815A21D1C0055AC15 /* Bill Pay-Prefix.pch */ = {isa = PBXFileReference; path = "Bill Pay-Prefix.pch"; sourceTree = "<group>"; };
-		B63873A915A21D1C0055AC15 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		B63873A815A21D1C0055AC15 /* Bill Pay-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bill Pay-Prefix.pch"; sourceTree = "<group>"; };
+		B63873A915A21D1C0055AC15 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B63873AA15A21D1C0055AC15 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B63873AD15A21D1C0055AC15 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		B63873AF15A21D1C0055AC15 /* ViewController.h */ = {isa = PBXFileReference; path = ViewController.h; sourceTree = "<group>"; };
-		B63873B015A21D1C0055AC15 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		B63873AF15A21D1C0055AC15 /* AddViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddViewController.h; sourceTree = "<group>"; };
+		B63873B015A21D1C0055AC15 /* AddViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddViewController.m; sourceTree = "<group>"; };
 		B63873B715A21D1C0055AC15 /* Bill PayTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bill PayTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B63873B815A21D1C0055AC15 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		B63873C015A21D1C0055AC15 /* Bill PayTests-Info.plist */ = {isa = PBXFileReference; path = "Bill PayTests-Info.plist"; sourceTree = "<group>"; };
+		B63873C015A21D1C0055AC15 /* Bill PayTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Bill PayTests-Info.plist"; sourceTree = "<group>"; };
 		B63873C215A21D1C0055AC15 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		B63873C415A21D1C0055AC15 /* Bill_PayTests.h */ = {isa = PBXFileReference; path = Bill_PayTests.h; sourceTree = "<group>"; };
+		B63873C415A21D1C0055AC15 /* Bill_PayTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bill_PayTests.h; sourceTree = "<group>"; };
 		B63873C515A21D1C0055AC15 /* Bill_PayTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Bill_PayTests.m; sourceTree = "<group>"; };
+		B63873D315A373740055AC15 /* Bill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bill.h; sourceTree = "<group>"; };
+		B63873D415A373740055AC15 /* Bill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bill.m; sourceTree = "<group>"; };
+		B63873DA15A377610055AC15 /* BillItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillItem.h; sourceTree = "<group>"; };
+		B63873DB15A377610055AC15 /* BillItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,9 +120,13 @@
 				B63873A915A21D1C0055AC15 /* AppDelegate.h */,
 				B63873AA15A21D1C0055AC15 /* AppDelegate.m */,
 				B63873AC15A21D1C0055AC15 /* MainStoryboard.storyboard */,
-				B63873AF15A21D1C0055AC15 /* ViewController.h */,
-				B63873B015A21D1C0055AC15 /* ViewController.m */,
+				B63873AF15A21D1C0055AC15 /* AddViewController.h */,
+				B63873B015A21D1C0055AC15 /* AddViewController.m */,
 				B63873A115A21D1C0055AC15 /* Supporting Files */,
+				B63873D315A373740055AC15 /* Bill.h */,
+				B63873D415A373740055AC15 /* Bill.m */,
+				B63873DA15A377610055AC15 /* BillItem.h */,
+				B63873DB15A377610055AC15 /* BillItem.m */,
 			);
 			path = "Bill Pay";
 			sourceTree = "<group>";
@@ -260,7 +270,9 @@
 			files = (
 				B63873A715A21D1C0055AC15 /* main.m in Sources */,
 				B63873AB15A21D1C0055AC15 /* AppDelegate.m in Sources */,
-				B63873B115A21D1C0055AC15 /* ViewController.m in Sources */,
+				B63873B115A21D1C0055AC15 /* AddViewController.m in Sources */,
+				B63873D515A373740055AC15 /* Bill.m in Sources */,
+				B63873DC15A377610055AC15 /* BillItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +442,7 @@
 				B63873CB15A21D1C0055AC15 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B63873CC15A21D1C0055AC15 /* Build configuration list for PBXNativeTarget "Bill PayTests" */ = {
 			isa = XCConfigurationList;
@@ -438,6 +451,7 @@
 				B63873CE15A21D1C0055AC15 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
