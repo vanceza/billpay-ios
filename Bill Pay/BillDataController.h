@@ -14,4 +14,7 @@
 - (BillItem *)objectInListAtIndex:(NSInteger)theIndex;
 - (void)addBillItem:(BillItem *)item;
 - (void)addBillItemWithDollars:(NSInteger)dollars cents:(NSInteger)cents description:(NSString *) description;
+//@property Cost *tax;
+//@property Cost *tip;
+- (Cost *)totalBeforeTaxOrTip;
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "BillDataController.h"
+#import "Cost.h"
 
 @interface BillDataController ()
 - (void) initializeDefaultDataList;
@@ -16,7 +17,8 @@
 @implementation BillDataController
 @synthesize dataStore = _dataStore;
 
-- (id)init {
+- (id)init 
+{
     if (self = [super init]) {
         [self initializeDefaultDataList];
         return self;
@@ -46,8 +48,22 @@
     [self.dataStore addObject:item];
 }
 
-- (void)addBillItemWithDollars:(NSInteger)dollars cents:(NSInteger)cents description:(NSString *) description {
-    [self addBillItem:[[BillItem alloc] initWithCostInCents:dollars*100+cents description:description]];
+- (void)addBillItemWithDollars:(NSInteger)dollars cents:(NSInteger)cents description:(NSString *) description 
+{
+    Cost *cost = [[Cost alloc] initFromDollars:dollars cents:cents];
+    [self addBillItem:[[BillItem alloc] initWithCost:cost description:description]];
+}
+
+- (Cost *)totalBeforeTaxOrTip
+{
+    NSInteger totalCostInCents=0;
+    BillItem *i = [BillItem alloc];
+    for(i in self.dataStore)
+    {
+        totalCostInCents += i.cost.inCents;
+    }
+    Cost *ret = [[Cost alloc] initFromCostInCents:totalCostInCents]; 
+    return ret;
 }
 
 @end

@@ -8,12 +8,17 @@
 
 #import "BillItem.h"
 
+
+@interface BillItem ()
+@end
+
 @implementation BillItem
 
-@synthesize costInCents=_cost;
+@synthesize cost = _cost;
+@synthesize costInCents=_costInCents;
 @synthesize description=_description;
 
-- (id) initWithCostInCents:(NSInteger)theCost description:(NSString *) theDescription
+- (id) initWithCost:(Cost *)theCost description:(NSString *) theDescription
 {
     self = [super init];
     if (self) {
@@ -24,19 +29,36 @@
     return nil;
 }
 
+//- (id) initWithCostInCents:(NSInteger)theCost description:(NSString *) theDescription
+//{
+//    self = [super init];
+//    if (self) {
+//        _cost = [[Cost alloc] initFromCostInCents:theCost];
+//        _description = theDescription;
+//        return self;
+//    }
+//    return nil;
+//}
+
 - (NSInteger) dollars
 {
-    return (self.costInCents - self.cents) / 100;
+    return [self.cost dollars];
 }
 
 - (NSInteger) cents
 {
-    return (self.costInCents % 100);
+    return [self.cost cents];
 }
 
-- (NSString *)costAsString
+- (NSInteger) costInCents
 {
-    return [[NSString alloc] initWithFormat:@"$%d.%02d", self.dollars, self.cents];
+    return [self.cost inCents];
 }
+
+- (NSString *) costAsString
+{
+    return [self.cost asString];
+}
+
 
 @end

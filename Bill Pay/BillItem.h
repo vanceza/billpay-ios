@@ -7,15 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Cost.h"
 
 @interface BillItem : NSObject
 
-@property NSInteger costInCents;
-- (NSInteger) dollars;
-- (NSInteger) cents;
+@property (readonly) NSInteger costInCents;
+@property (readonly) NSInteger dollars;
+@property (readonly) NSInteger cents;
+@property (strong, nonatomic) Cost *cost;
 - (NSString *)costAsString;
 @property (nonatomic, copy) NSString *description;
 
-- (id) initWithCostInCents:(NSInteger)theCost description:(NSString *) theDescription;
+//- (id) initWithCostInCents:(NSInteger)theCost description:(NSString *) theDescription;
+- (id) initWithCost:(Cost *)theCost description:(NSString *) theDescription;
 
 @end

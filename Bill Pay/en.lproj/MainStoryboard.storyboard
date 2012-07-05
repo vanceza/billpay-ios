@@ -104,6 +104,11 @@
                         </prototypes>
                     </tableView>
                     <navigationItem key="navigationItem" title="Bill" id="z4W-ST-OCp">
+                        <barButtonItem key="leftBarButtonItem" title="Pay" id="7cd-MR-70s">
+                            <connections>
+                                <segue destination="img-4s-Dza" kind="modal" identifier="FinishEnteringItems" id="udq-XH-gby"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="3m0-R2-nXX">
                             <connections>
                                 <segue destination="mFc-my-rIW" kind="modal" identifier="AddMenuItem" id="dNf-BM-ECp"/>
@@ -113,6 +118,46 @@
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="246" y="-517"/>
+        </scene>
+        <!--Finish View Controller-->
+        <scene sceneID="1u4-Rl-l1X">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rez-lx-8mZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="Ke2-Dh-5p4" customClass="FinishViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rhf-oZ-E8Y">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Total Cost:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="b1O-dm-jHG">
+                                <rect key="frame" x="51" y="131" width="84" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="y88-YD-YfO">
+                                <rect key="frame" x="143" y="130" width="42" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="8Br-Dr-r9A">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="H2K-W3-o1k">
+                            <connections>
+                                <action selector="goBack:" destination="Ke2-Dh-5p4" id="S3g-bj-C02"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="totalCostLabel" destination="y88-YD-YfO" id="ScE-E1-730"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="664" y="66"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Qzm-pd-vFH">
@@ -151,7 +196,52 @@
             </objects>
             <point key="canvasLocation" x="664" y="-517"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="rSf-9S-5Y0">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3LQ-h3-fzR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="img-4s-Dza" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="8IO-bR-XhQ"/>
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="mhs-5W-K4Q">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Ke2-Dh-5p4" kind="relationship" relationship="rootViewController" id="Chs-8P-45U"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="246" y="66"/>
+        </scene>
     </scenes>
+    <classes>
+        <class className="AddViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelClicked:"/>
+                <relationship kind="action" name="doneClicked:"/>
+                <relationship kind="action" name="updateCost:"/>
+                <relationship kind="action" name="updateDescription:"/>
+                <relationship kind="outlet" name="doneButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="label" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="textFieldDescription" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="textFieldMoney" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="BillViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BillViewController.h"/>
+        </class>
+        <class className="FinishViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FinishViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="goBack:"/>
+                <relationship kind="outlet" name="totalCostLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="totalCostLabel2" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

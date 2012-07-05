@@ -11,21 +11,17 @@
 @protocol AddViewControllerDelegate;
 
 @interface AddViewController : UIViewController <UITextFieldDelegate>
-@property (weak, nonatomic) IBOutlet UILabel *label;
-@property (weak, nonatomic) IBOutlet UITextField *textFieldMoney;
-@property (weak, nonatomic) IBOutlet UITextField *textFieldDescription;
-
-- (IBAction)updateCost:(id)sender;
-
-@property (copy, nonatomic, readwrite) NSString *currentCost;
 
 - (BOOL)textFieldShouldReturn:(UITextField *)theTextField;
-
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
-
+- (IBAction)updateCost:(id)sender;
 - (IBAction)doneClicked:(id)sender;
 - (IBAction)cancelClicked:(id)sender;
 
+@property (copy, nonatomic, readwrite) NSString *currentCost;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
+@property (weak, nonatomic) IBOutlet UILabel *label;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldMoney;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldDescription;
 @property (weak, nonatomic) id <AddViewControllerDelegate> delegate;
 
 @end

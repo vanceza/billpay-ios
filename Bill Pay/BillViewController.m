@@ -8,8 +8,9 @@
 
 #import "BillViewController.h"
 #import "AddViewController.h"
+#import "FinishViewController.h"
 
-@interface BillViewController () <AddViewControllerDelegate>
+@interface BillViewController () <AddViewControllerDelegate, FinishViewControllerDelegate>
 @end
 
 @implementation BillViewController
@@ -34,11 +35,20 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 
+- (void)finishViewControllerDidGoBack:(FinishViewController *)controller {
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if([[segue identifier] isEqualToString:@"AddMenuItem"]) {
         AddViewController *addController = (AddViewController *)[[[segue destinationViewController] viewControllers] objectAtIndex:0];
         addController.delegate = self;
+    } else if ([[segue identifier] isEqualToString:@"FinishEnteringItems"]) {
+        FinishViewController *finController = (FinishViewController *)[[[segue destinationViewController] viewControllers] objectAtIndex:0];
+        NSLog(@"%d", [[[segue destinationViewController] viewControllers] count]);
+        finController.delegate = self;
+        finController.dataController = self.dataController;
     }
 }
 
