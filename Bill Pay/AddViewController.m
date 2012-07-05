@@ -15,6 +15,7 @@
 @property (readonly) NSInteger currentCostCents;
 @property (readonly) BOOL currentCostValid;
 @property (readonly, nonatomic) NSString *description;
+- (IBAction)updateDescription:(id)sender;
 @end
 
 @implementation AddViewController
@@ -115,18 +116,24 @@
     self.currentCost = self.textFieldMoney.text;
 }
 
+- (IBAction)updateDescription:(id)sender {
+    _description = self.textFieldDescription.text;
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
     if (theTextField == self.textFieldMoney) {
         [theTextField resignFirstResponder];
     }
     if (theTextField == self.textFieldDescription) {
+        [self updateDescription:nil];
         [theTextField resignFirstResponder];
     }
     return YES;
 }
 
 - (IBAction)doneClicked:(id)sender {
-    [[self delegate] addViewControllerDidFinish:self dollars:self.currentCostDollars cents:self.currentCostCents description:self.textFieldDescription.text];
+    [self updateDescription:nil];
+    [[self delegate] addViewControllerDidFinish:self dollars:self.currentCostDollars cents:self.currentCostCents description:self.description];
 }
 
 - (IBAction)cancelClicked:(id)sender {
