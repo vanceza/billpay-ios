@@ -46,7 +46,6 @@
         addController.delegate = self;
     } else if ([[segue identifier] isEqualToString:@"FinishEnteringItems"]) {
         FinishViewController *finController = (FinishViewController *)[[[segue destinationViewController] viewControllers] objectAtIndex:0];
-        NSLog(@"%d", [[[segue destinationViewController] viewControllers] count]);
         finController.delegate = self;
         finController.dataController = self.dataController;
     }
