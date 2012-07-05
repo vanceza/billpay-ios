@@ -20,8 +20,9 @@
 		B63873BB15A21D1C0055AC15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B638739C15A21D1C0055AC15 /* Foundation.framework */; };
 		B63873C315A21D1C0055AC15 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B63873C115A21D1C0055AC15 /* InfoPlist.strings */; };
 		B63873C615A21D1C0055AC15 /* Bill_PayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B63873C515A21D1C0055AC15 /* Bill_PayTests.m */; };
-		B63873D515A373740055AC15 /* Bill.m in Sources */ = {isa = PBXBuildFile; fileRef = B63873D415A373740055AC15 /* Bill.m */; };
+		B63873D515A373740055AC15 /* BillViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B63873D415A373740055AC15 /* BillViewController.m */; };
 		B63873DC15A377610055AC15 /* BillItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B63873DB15A377610055AC15 /* BillItem.m */; };
+		B6AF782715A60EF600C5F635 /* BillDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AF782615A60EF600C5F635 /* BillDataController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,10 +55,12 @@
 		B63873C215A21D1C0055AC15 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B63873C415A21D1C0055AC15 /* Bill_PayTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bill_PayTests.h; sourceTree = "<group>"; };
 		B63873C515A21D1C0055AC15 /* Bill_PayTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Bill_PayTests.m; sourceTree = "<group>"; };
-		B63873D315A373740055AC15 /* Bill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bill.h; sourceTree = "<group>"; };
-		B63873D415A373740055AC15 /* Bill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bill.m; sourceTree = "<group>"; };
+		B63873D315A373740055AC15 /* BillViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = BillViewController.h; sourceTree = "<group>"; };
+		B63873D415A373740055AC15 /* BillViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillViewController.m; sourceTree = "<group>"; };
 		B63873DA15A377610055AC15 /* BillItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillItem.h; sourceTree = "<group>"; };
 		B63873DB15A377610055AC15 /* BillItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillItem.m; sourceTree = "<group>"; };
+		B6AF782515A60EF600C5F635 /* BillDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillDataController.h; sourceTree = "<group>"; };
+		B6AF782615A60EF600C5F635 /* BillDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillDataController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,8 +126,10 @@
 				B63873AF15A21D1C0055AC15 /* AddViewController.h */,
 				B63873B015A21D1C0055AC15 /* AddViewController.m */,
 				B63873A115A21D1C0055AC15 /* Supporting Files */,
-				B63873D315A373740055AC15 /* Bill.h */,
-				B63873D415A373740055AC15 /* Bill.m */,
+				B63873D315A373740055AC15 /* BillViewController.h */,
+				B63873D415A373740055AC15 /* BillViewController.m */,
+				B6AF782515A60EF600C5F635 /* BillDataController.h */,
+				B6AF782615A60EF600C5F635 /* BillDataController.m */,
 				B63873DA15A377610055AC15 /* BillItem.h */,
 				B63873DB15A377610055AC15 /* BillItem.m */,
 			);
@@ -271,8 +276,9 @@
 				B63873A715A21D1C0055AC15 /* main.m in Sources */,
 				B63873AB15A21D1C0055AC15 /* AppDelegate.m in Sources */,
 				B63873B115A21D1C0055AC15 /* AddViewController.m in Sources */,
-				B63873D515A373740055AC15 /* Bill.m in Sources */,
+				B63873D515A373740055AC15 /* BillViewController.m in Sources */,
 				B63873DC15A377610055AC15 /* BillItem.m in Sources */,
+				B6AF782715A60EF600C5F635 /* BillDataController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

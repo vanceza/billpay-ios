@@ -32,5 +32,5 @@
 
 @protocol AddViewControllerDelegate <NSObject>
 - (void)addViewControllerDidCancel:(AddViewController *)controller;
-- (void)addViewControllerDidFinish:(AddViewController *)controller dollars:(NSNumber *)dollars cents:(NSNumber *)cents description:(NSString *)description;
+- (void)addViewControllerDidFinish:(AddViewController *)controller dollars:(NSInteger)dollars cents:(NSInteger)cents description:(NSString *)description;
 @end

@@ -44,7 +44,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Menu Item" id="4YF-gj-Fvl">
+                    <navigationItem key="navigationItem" title="Add to Bill" id="4YF-gj-Fvl">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="OND-B2-bLI">
                             <connections>
                                 <action selector="cancelClicked:" destination="2" id="zRJ-GQ-1xP"/>
@@ -66,11 +66,11 @@
             </objects>
             <point key="canvasLocation" x="1044" y="-517"/>
         </scene>
-        <!--Bill - Bill-->
+        <!--Bill View Controller - Bill-->
         <scene sceneID="XcW-7Y-cYl">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2h5-AI-fjN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="dIa-eb-bOC" customClass="Bill" sceneMemberID="viewController">
+                <tableViewController id="dIa-eb-bOC" customClass="BillViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="qWn-qu-efQ">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -152,23 +152,6 @@
             <point key="canvasLocation" x="664" y="-517"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="AddViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelClicked:"/>
-                <relationship kind="action" name="doneClicked:"/>
-                <relationship kind="action" name="updateCost:"/>
-                <relationship kind="outlet" name="doneButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="label" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="textFieldDescription" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="textFieldMoney" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="Bill" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/Bill.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

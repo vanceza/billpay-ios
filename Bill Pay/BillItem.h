@@ -10,9 +10,12 @@
 
 @interface BillItem : NSObject
 
-@property (nonatomic, copy) NSNumber *cost;
+@property NSInteger costInCents;
+- (NSInteger) dollars;
+- (NSInteger) cents;
+- (NSString *)costAsString;
 @property (nonatomic, copy) NSString *description;
 
-- (id) initWithCost:(NSNumber *)theCost description:(NSString *) theDescription;
+- (id) initWithCostInCents:(NSInteger)theCost description:(NSString *) theDescription;
 
 @end

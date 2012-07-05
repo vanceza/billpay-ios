@@ -11,9 +11,10 @@
 @interface AddViewController ()
 {
 }
-@property (readonly) NSNumber *currentCostDollars;
-@property (readonly) NSNumber *currentCostCents;
+@property (readonly) NSInteger currentCostDollars;
+@property (readonly) NSInteger currentCostCents;
 @property (readonly) BOOL currentCostValid;
+@property (readonly, nonatomic) NSString *description;
 @end
 
 @implementation AddViewController
@@ -28,6 +29,7 @@
 @synthesize currentCostValid = _valid;
 @synthesize currentCostDollars = _dollars;
 @synthesize currentCostCents = _cents;
+@synthesize description = _description;
 
 @synthesize delegate = _delegate;
 
@@ -63,27 +65,27 @@
     NSTextCheckingResult *match = [dollarsAndCentsRegex firstMatchInString:text options:0 range:NSMakeRange(0, [text length])];
     if(match) {
         self.valid = YES;
-        _dollars = [NSNumber numberWithInteger: [[text substringWithRange: [match rangeAtIndex:1]] integerValue]];
-        _cents = [NSNumber numberWithInteger: [[text substringWithRange: [match rangeAtIndex:2]] integerValue]];
+        _dollars = [[text substringWithRange: [match rangeAtIndex:1]] integerValue];
+        _cents = [[text substringWithRange: [match rangeAtIndex:2]] integerValue];
         return;
     }
     match = [centsOnlyRegex firstMatchInString:text options:0 range:NSMakeRange(0, [text length])];
     if(match) {
         self.valid = YES;
-        _dollars = nil;
-        _cents = [NSNumber numberWithInteger: [[text substringWithRange: [match rangeAtIndex:1]] integerValue]];
+        _dollars = 0;
+        _cents = [[text substringWithRange: [match rangeAtIndex:1]] integerValue];
         return;
     } 
     match = [dollarsOnlyRegex firstMatchInString:text options:0 range:NSMakeRange(0, [text length])];
     if(match) {
         self.valid = YES;
-        _cents = nil;
-        _dollars = [NSNumber numberWithInteger: [[text substringWithRange: [match rangeAtIndex:1]] integerValue]];
+        _cents = 0;
+        _dollars = [[text substringWithRange: [match rangeAtIndex:1]] integerValue];
         return;
     } else {
         self.valid = NO;
-        _dollars = nil;
-        _cents = nil;
+        _dollars = -1;
+        _cents = -1;
         return;
     }
 }
@@ -91,7 +93,7 @@
 - (NSString *)currentCost
 {
     if(self.currentCostValid) {
-        return [[NSString alloc] initWithFormat:@"$%d.%02d", [self.currentCostDollars integerValue] , [self.currentCostCents integerValue]];
+        return [[NSString alloc] initWithFormat:@"$%d.%02d", self.currentCostDollars, self.currentCostCents];
     } else {
         return @"Invalid";
     }
@@ -124,7 +126,7 @@
 }
 
 - (IBAction)doneClicked:(id)sender {
-    [[self delegate] addViewControllerDidFinish:self dollars:self.currentCostDollars cents:self.currentCostCents description:self.description];
+    [[self delegate] addViewControllerDidFinish:self dollars:self.currentCostDollars cents:self.currentCostCents description:self.textFieldDescription.text];
 }
 
 - (IBAction)cancelClicked:(id)sender {

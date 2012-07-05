@@ -10,10 +10,10 @@
 
 @implementation BillItem
 
-@synthesize cost=_cost;
+@synthesize costInCents=_cost;
 @synthesize description=_description;
 
-- (id) initWithCost:(NSNumber *)theCost description:(NSString *) theDescription
+- (id) initWithCostInCents:(NSInteger)theCost description:(NSString *) theDescription
 {
     self = [super init];
     if (self) {
@@ -22,6 +22,21 @@
         return self;
     }
     return nil;
+}
+
+- (NSInteger) dollars
+{
+    return (self.costInCents - self.cents) / 100;
+}
+
+- (NSInteger) cents
+{
+    return (self.costInCents % 100);
+}
+
+- (NSString *)costAsString
+{
+    return [[NSString alloc] initWithFormat:@"$%d.%02d", self.dollars, self.cents];
 }
 
 @end
