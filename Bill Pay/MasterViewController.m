@@ -74,17 +74,10 @@ static NSString *totalBeforeTaxOrTip = @"Total before tax or tip";
     // Release any retained subviews of the main view.
 }
 
--(void)billChanged
-{
-    //[self configureView];
-}
-
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if([[segue identifier] isEqualToString:@"EditBill"]) {
-        //BillViewController *billController = (BillViewController *)[[[segue destinationViewController] viewControllers] objectAtIndex:0];
         BillViewController *billController = (BillViewController *)[segue destinationViewController];
-        billController.delegate = self;
         billController.dataController = self.dataController;
     }
 }

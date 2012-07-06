@@ -1,5 +1,5 @@
 //
-//  FinishViewController.h
+//  MasterViewController.h
 //  Bill Pay
 //
 //  Created by Zachary Vance on 7/5/12.
@@ -10,16 +10,8 @@
 #import "BillViewController.h"
 #import "BillDataController.h"
 
-@protocol MasterViewControllerDelegate;
-
-@protocol MasterViewControllerDelegate
--(void)billChanged;
-@end
-
-@interface MasterViewController : UITableViewController <MasterViewControllerDelegate>
+@interface MasterViewController : UITableViewController
 @property (strong, nonatomic) NSString *cost;
 @property (weak, nonatomic) IBOutlet UILabel *totalCostLabel;
-//@property (weak, nonatomic) id <MasterViewControllerDelegate> delegate;
 @property (strong, nonatomic) BillDataController *dataController;
-//- (IBAction)goBack:(id)sender;
 @end
