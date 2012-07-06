@@ -23,7 +23,7 @@ static NSString *totalBeforeTaxOrTip = @"Total before tax or tip";
 @synthesize dataController = _dataController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{d
+{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
