@@ -42,7 +42,7 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if([[segue identifier] isEqualToString:@"AddMenuItem"]) {
-        AddViewController *addController = (AddViewController *)[[[segue destinationViewController] ÇviewControllers] objectAtIndex:0];
+        AddViewController *addController = (AddViewController *)[[[segue destinationViewController]viewControllers] objectAtIndex:0];
         addController.delegate = self;
     }
 }
