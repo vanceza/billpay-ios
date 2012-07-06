@@ -18,11 +18,14 @@
 @implementation BillDataController
 @synthesize dataStore = _dataStore;
 @synthesize totalBeforeTaxOrTip = _totalBeforeTaxOrTip;
+@synthesize taxPercent = _taxPercent, tipPercent=_tipPercent;
 
 - (id)init 
 {
     if (self = [super init]) {
         [self initializeDefaultDataList];
+        self.taxPercent = [NSDecimalNumber decimalNumberWithString:@"0.0825"];
+        self.tipPercent = [NSDecimalNumber decimalNumberWithString:@"0.15"];
         return self;
     }
     return nil;
@@ -34,7 +37,7 @@
     self.dataStore = list;
     [self addBillItemWithDollars:1 cents:20 description:@"Description here"];
 }
-
+         
 - (NSInteger) countOfList
 {
     return [self.dataStore count];
@@ -67,6 +70,46 @@
     }
     Cost *ret = [[Cost alloc] initFromCostInCents:totalCostInCents]; 
     self.totalBeforeTaxOrTip = ret;
+}
+
+- (Cost *) tax
+{
+    return [self.totalBeforeTaxOrTip costByMultiplyingBy:self.taxPercent];
+}
+
+- (Cost *) tip
+{
+    return [self.totalAfterTaxBeforeTip costByMultiplyingBy:self.tipPercent];
+}
+
+- (Cost *) totalAfterTaxBeforeTip
+{
+    return [self.totalBeforeTaxOrTip costByAdding:self.tax];
+}
+
+- (Cost *) totalAfterTaxAndTip
+{
+    return [self.totalAfterTaxBeforeTip costByAdding:self.tip];
+}
+
++ (NSSet *)keyPathsForValuesAffectingTax
+{
+    return [NSSet setWithObjects:@"taxPercent", @"totalBeforeTaxOrTip", nil];
+}
+
++ (NSSet *)keyPathsForValuesAffectingTip
+{
+    return [NSSet setWithObjects:@"tipPercent", @"totalAfterTaxBeforeTip", nil];
+}
+
++ (NSSet *)keyPathsForValuesAffectingTotalAfterTaxBeforeTip
+{
+    return [NSSet setWithObjects:@"totalBeforeTaxOrTip", @"tax", nil];
+}
+
++ (NSSet *)keyPathsForValuesAffectingTotalAfterTaxAndTip
+{
+    return [NSSet setWithObjects:@"totalAfterTaxBeforeTip", @"tip", nil];
 }
 
 //- (IBAction)goBackFromBill:(id)sender {

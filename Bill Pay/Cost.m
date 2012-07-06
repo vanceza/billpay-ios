@@ -63,4 +63,17 @@
     return [NSSet setWithObjects:@"dollars", @"cents", nil];
 }
 
+-(Cost *)costByMultiplyingBy:(NSDecimalNumber *)percent
+{
+    NSDecimalNumber *costInCents = [NSDecimalNumber decimalNumberWithDecimal:[[NSNumber numberWithInteger:self.inCents] decimalValue]];
+    NSDecimalNumberHandler *handler = [NSDecimalNumberHandler decimalNumberHandlerWithRoundingMode:NSRoundBankers scale:0 raiseOnExactness:NO raiseOnOverflow:NO raiseOnUnderflow:NO raiseOnDivideByZero:NO];
+    NSDecimalNumber *product = [costInCents decimalNumberByMultiplyingBy:percent withBehavior:handler];
+    return [[Cost alloc] initFromCostInCents: [product integerValue]];   
+}
+
+-(Cost *)costByAdding:(Cost *)other
+{
+    return [[Cost alloc] initFromCostInCents:self.inCents+other.inCents];
+}
+
 @end

@@ -14,7 +14,11 @@
 - (BillItem *)objectInListAtIndex:(NSInteger)theIndex;
 - (void)addBillItem:(BillItem *)item;
 - (void)addBillItemWithDollars:(NSInteger)dollars cents:(NSInteger)cents description:(NSString *) description;
-//@property Cost *tax;
-//@property Cost *tip;
+@property (nonatomic) NSDecimalNumber *taxPercent; //0.01 is 1%
+@property (nonatomic) NSDecimalNumber *tipPercent;
+@property (readonly, nonatomic) Cost *tax;
+@property (readonly, nonatomic) Cost *tip;
 @property (nonatomic) Cost *totalBeforeTaxOrTip;
+@property (nonatomic, readonly) Cost *totalAfterTaxBeforeTip;
+@property (nonatomic, readonly) Cost *totalAfterTaxAndTip;
 @end

@@ -11,7 +11,9 @@
 #import "BillDataController.h"
 
 @interface MasterViewController : UITableViewController
-@property (strong, nonatomic) NSString *cost;
+@property (weak, nonatomic) IBOutlet UILabel *billCostLabel;
+@property (weak, nonatomic) IBOutlet UILabel *taxCostLabel;
+@property (weak, nonatomic) IBOutlet UILabel *tipCostLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalCostLabel;
 @property (strong, nonatomic) BillDataController *dataController;
 @end

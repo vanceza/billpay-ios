@@ -8,9 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "BillDataController.h"
-#import "MasterViewController.h"
-
-@protocol MasterViewControllerDelegate;
 
 @interface BillViewController : UITableViewController
 @property (strong, nonatomic) BillDataController *dataController;

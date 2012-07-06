@@ -15,4 +15,6 @@
 @property (readonly) NSInteger inCents;
 @property (readonly) NSInteger dollars;
 @property (readonly) NSInteger cents;
+-(Cost *)costByMultiplyingBy:(NSDecimalNumber *)percent;
+-(Cost *)costByAdding:(Cost *)other;
 @end
