@@ -16,5 +16,5 @@
 - (void)addBillItemWithDollars:(NSInteger)dollars cents:(NSInteger)cents description:(NSString *) description;
 //@property Cost *tax;
 //@property Cost *tip;
-- (Cost *)totalBeforeTaxOrTip;
+@property (nonatomic) Cost *totalBeforeTaxOrTip;
 @end

@@ -9,8 +9,11 @@
 #import "MasterViewController.h"
 #import "BillViewController.h"
 
+static NSString *totalBeforeTaxOrTip = @"Total before tax or tip";
+
 @interface MasterViewController ()
-- (void)configureView;
+//- (void)configureView;
+-(void)updateTotalBeforeTaxOrTip;
 @end
 
 @implementation MasterViewController
@@ -20,7 +23,7 @@
 @synthesize dataController = _dataController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+{d
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -31,8 +34,36 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self configureView];
+    [self updateTotalBeforeTaxOrTip];
 	// Do any additional setup after loading the view.
+}
+
+- (void) setDataController:(BillDataController *)dataController
+{
+    if(_dataController)
+    {
+        [dataController removeObserver:self forKeyPath:@"totalBeforeTaxOrTip" context:&totalBeforeTaxOrTip];
+        _dataController = nil;
+    }
+    _dataController = dataController;
+    [dataController addObserver:self forKeyPath:@"totalBeforeTaxOrTip" options:(NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew) context:&totalBeforeTaxOrTip];
+}
+
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if(context == &totalBeforeTaxOrTip)
+    {
+        [self updateTotalBeforeTaxOrTip];
+    }
+}
+
+-(void)updateTotalBeforeTaxOrTip
+{
+    if(self.totalCostLabel) {
+        BillDataController *data = self.dataController;
+        self.cost = [data.totalBeforeTaxOrTip asString];
+        self.totalCostLabel.text = self.cost;
+    }
 }
 
 - (void)viewDidUnload
@@ -43,18 +74,9 @@
     // Release any retained subviews of the main view.
 }
 
-- (void)configureView
-{
-    BillDataController *data = self.dataController;
-    self.cost = [data.totalBeforeTaxOrTip asString];
-    if(self.totalCostLabel) {
-        self.totalCostLabel.text = self.cost;
-    }
-}
-
 -(void)billChanged
 {
-    [self configureView];
+    //[self configureView];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

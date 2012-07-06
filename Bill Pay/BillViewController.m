@@ -31,7 +31,6 @@
             description = @"";
         }
         [[self dataController] addBillItemWithDollars:dollars cents:cents description:description];
-        [[self delegate] billChanged];
         [[self tableView] reloadData];
     }
     [self dismissModalViewControllerAnimated:YES];

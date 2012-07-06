@@ -11,11 +11,13 @@
 
 @interface BillDataController ()
 - (void) initializeDefaultDataList;
+- (void)updateTotalBeforeTaxOrTip;
 @property NSMutableArray *dataStore;
 @end
 
 @implementation BillDataController
 @synthesize dataStore = _dataStore;
+@synthesize totalBeforeTaxOrTip = _totalBeforeTaxOrTip;
 
 - (id)init 
 {
@@ -46,6 +48,7 @@
 - (void)addBillItem:(BillItem *)item
 {
     [self.dataStore addObject:item];
+    [self updateTotalBeforeTaxOrTip];
 }
 
 - (void)addBillItemWithDollars:(NSInteger)dollars cents:(NSInteger)cents description:(NSString *) description 
@@ -54,7 +57,7 @@
     [self addBillItem:[[BillItem alloc] initWithCost:cost description:description]];
 }
 
-- (Cost *)totalBeforeTaxOrTip
+- (void)updateTotalBeforeTaxOrTip
 {
     NSInteger totalCostInCents=0;
     BillItem *i = [BillItem alloc];
@@ -63,7 +66,7 @@
         totalCostInCents += i.cost.inCents;
     }
     Cost *ret = [[Cost alloc] initFromCostInCents:totalCostInCents]; 
-    return ret;
+    self.totalBeforeTaxOrTip = ret;
 }
 
 //- (IBAction)goBackFromBill:(id)sender {

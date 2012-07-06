@@ -12,7 +12,7 @@
 -(id)initFromDollars:(NSInteger)dollars cents:(NSInteger)cents;
 -(id)initFromCostInCents:(NSInteger)cents;
 -(NSString *)asString;
--(NSInteger)inCents;
-@property NSInteger dollars;
-@property NSInteger cents;
+@property (readonly) NSInteger inCents;
+@property (readonly) NSInteger dollars;
+@property (readonly) NSInteger cents;
 @end

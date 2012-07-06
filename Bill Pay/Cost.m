@@ -8,6 +8,11 @@
 
 #import "Cost.h"
 
+@interface Cost ()
+    @property (readwrite) NSInteger dollars;
+    @property (readwrite) NSInteger cents;
+@end
+
 @implementation Cost
 {
 }
@@ -29,8 +34,8 @@
     self = [super init];
     if(self)
     {
-        _dollars = dollars;
-        _cents = cents;
+        self.dollars = dollars;
+        self.cents = cents;
         return self;
     }
     return nil;
@@ -41,8 +46,8 @@
     self = [super init];
     if(self)
     {
-        _cents = cents % 100;
-        _dollars = (cents - _cents) / 100;
+        self.cents = cents % 100;
+        self.dollars = (cents - self.cents) / 100;
         return self;
     }
     return nil;
@@ -52,4 +57,10 @@
 {
     return self.dollars * 100 + self.cents;
 }
+
++(NSSet *)keyPathsForValuesAffectingInCents
+{
+    return [NSSet setWithObjects:@"dollars", @"cents", nil];
+}
+
 @end
