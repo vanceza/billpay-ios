@@ -66,4 +66,8 @@
     return ret;
 }
 
+//- (IBAction)goBackFromBill:(id)sender {
+//    [[self delegate] finishViewControllerDidGoBack:self];
+//}
+
 @end

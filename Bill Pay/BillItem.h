@@ -14,7 +14,7 @@
 @property (readonly) NSInteger costInCents;
 @property (readonly) NSInteger dollars;
 @property (readonly) NSInteger cents;
-@property (strong, nonatomic) Cost *cost;
+@property (copy, nonatomic) Cost *cost;
 - (NSString *)costAsString;
 @property (nonatomic, copy) NSString *description;
 

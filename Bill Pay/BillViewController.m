@@ -8,14 +8,15 @@
 
 #import "BillViewController.h"
 #import "AddViewController.h"
-#import "FinishViewController.h"
+#import "MasterViewController.h"
 
-@interface BillViewController () <AddViewControllerDelegate, FinishViewControllerDelegate>
+@interface BillViewController () <AddViewControllerDelegate>
 @end
 
 @implementation BillViewController
 
 @synthesize dataController = _dataController;
+@synthesize delegate = _delegate;
 
 - (void)addViewControllerDidCancel:(AddViewController *)controller
 {
@@ -30,12 +31,13 @@
             description = @"";
         }
         [[self dataController] addBillItemWithDollars:dollars cents:cents description:description];
+        [[self delegate] billChanged];
         [[self tableView] reloadData];
     }
     [self dismissModalViewControllerAnimated:YES];
 }
 
-- (void)finishViewControllerDidGoBack:(FinishViewController *)controller {
+- (void)finishViewControllerDidGoBack:(MasterViewController *)controller {
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
@@ -44,11 +46,16 @@
     if([[segue identifier] isEqualToString:@"AddMenuItem"]) {
         AddViewController *addController = (AddViewController *)[[[segue destinationViewController] viewControllers] objectAtIndex:0];
         addController.delegate = self;
-    } else if ([[segue identifier] isEqualToString:@"FinishEnteringItems"]) {
-        FinishViewController *finController = (FinishViewController *)[[[segue destinationViewController] viewControllers] objectAtIndex:0];
-        finController.delegate = self;
-        finController.dataController = self.dataController;
     }
+}
+
+- (void)setDataController:(BillDataController *)dataController
+{
+    if(_dataController != dataController)
+    {
+        _dataController = dataController;
+    }
+    //[self configureView];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

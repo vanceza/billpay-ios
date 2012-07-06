@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "BillViewController.h"
+#import "MasterViewController.h"
 #import "BillDataController.h"
 
 @implementation AppDelegate
@@ -17,9 +17,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-    BillViewController *billViewController = (BillViewController *)[[navigationController viewControllers] objectAtIndex:0];
+    //BillViewController *billViewController = (BillViewController *)[[navigationController viewControllers] objectAtIndex:0];
+    MasterViewController *masterViewController = (MasterViewController *)[[navigationController viewControllers] objectAtIndex:0];
     BillDataController *billDataController =  [[BillDataController alloc] init];
-    billViewController.dataController = billDataController;
+    masterViewController.dataController = billDataController;
     // Override point for customization after application launch.
     return YES;
 }
