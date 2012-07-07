@@ -8,7 +8,8 @@
 
 #import "MasterViewController.h"
 #import "BillViewController.h"
-#import "SlidingPercentController.h"
+#import "SlidingTaxPercentController.h"
+#import "SlidingTipPercent.h"
 
 static NSString *mstrTotalBeforeTaxOrTip = @"Total before tax or tip";
 static NSString *mstrTax = @"Tax";
@@ -133,7 +134,10 @@ static NSString *mstrTotalAfterTaxAndTip = @"Total after tax and tip";
         BillViewController *billController = (BillViewController *)[segue destinationViewController];
         billController.dataController = self.dataController;
     } else if ([[segue identifier] isEqualToString:@"ChangeTax"]) {
-        SlidingPercentController *slidingController = (SlidingPercentController *)[segue destinationViewController];
+        SlidingTaxPercentController *slidingController = (SlidingTaxPercentController *)[segue destinationViewController];
+        slidingController.dataController = self.dataController;
+    } else if ([[segue identifier] isEqualToString:@"ChangeTip"]) {
+        SlidingTipPercent *slidingController = (SlidingTipPercent *)[segue destinationViewController];
         slidingController.dataController = self.dataController;
     }
 }
