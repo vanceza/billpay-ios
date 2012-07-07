@@ -10,10 +10,10 @@
 #import "BillViewController.h"
 #import "SlidingPercentController.h"
 
-static NSString *totalBeforeTaxOrTip = @"Total before tax or tip";
-static NSString *tax = @"Tax";
-static NSString *tip = @"Tip";
-static NSString *totalAfterTaxAndTip = @"Total after tax and tip";
+static NSString *mstrTotalBeforeTaxOrTip = @"Total before tax or tip";
+static NSString *mstrTax = @"Tax";
+static NSString *mstrTip = @"Tip";
+static NSString *mstrTotalAfterTaxAndTip = @"Total after tax and tip";
 
 @interface MasterViewController ()
 //- (void)configureView;
@@ -52,30 +52,34 @@ static NSString *totalAfterTaxAndTip = @"Total after tax and tip";
 
 - (void) setDataController:(BillDataController *)dataController
 {
+    if(_dataController == dataController)
+        return;
     if(_dataController)
     {
-        [dataController removeObserver:self forKeyPath:@"totalBeforeTaxOrTip" context:&totalBeforeTaxOrTip];
-        [dataController removeObserver:self forKeyPath:@"tax" context:&tax];
-        [dataController removeObserver:self forKeyPath:@"tip" context:&tip];
-        [dataController removeObserver:self forKeyPath:@"totalAfterTaxAndTip" context:&totalAfterTaxAndTip];
-        _dataController = nil;
+        [dataController removeObserver:self forKeyPath:@"totalBeforeTaxOrTip" context:&mstrTotalBeforeTaxOrTip];
+        [dataController removeObserver:self forKeyPath:@"tax" context:&mstrTax];
+        [dataController removeObserver:self forKeyPath:@"tip" context:&mstrTip];
+        [dataController removeObserver:self forKeyPath:@"totalAfterTaxAndTip" context:&mstrTotalAfterTaxAndTip];
+    }
+    if(dataController)
+    {
+        [dataController addObserver:self forKeyPath:@"totalBeforeTaxOrTip" options:(NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew) context:&mstrTotalBeforeTaxOrTip];
+        [dataController addObserver:self forKeyPath:@"tax" options:(NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew) context:&mstrTax];
+        [dataController addObserver:self forKeyPath:@"tip" options:(NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew) context:&mstrTip];
+        [dataController addObserver:self forKeyPath:@"totalAfterTaxAndTip" options:(NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew) context:&mstrTotalAfterTaxAndTip];
     }
     _dataController = dataController;
-    [dataController addObserver:self forKeyPath:@"totalBeforeTaxOrTip" options:(NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew) context:&totalBeforeTaxOrTip];
-    [dataController addObserver:self forKeyPath:@"tax" options:(NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew) context:&tax];
-    [dataController addObserver:self forKeyPath:@"tip" options:(NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew) context:&tip];
-    [dataController addObserver:self forKeyPath:@"totalAfterTaxAndTip" options:(NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew) context:&totalAfterTaxAndTip];
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    if(context == &totalBeforeTaxOrTip) {
+    if(context == &mstrTotalBeforeTaxOrTip) {
         [self updateTotalBeforeTaxOrTip];
-    } else if(context == &tax) {
+    } else if(context == &mstrTax) {
         [self updateTax];
-    } else if(context == &tip) {
+    } else if(context == &mstrTip) {
         [self updateTip];
-    } else if(context == &totalAfterTaxAndTip) {
+    } else if(context == &mstrTotalAfterTaxAndTip) {
         [self updateTotalAfterTaxAndTip];
     }
 }
@@ -111,12 +115,16 @@ static NSString *totalAfterTaxAndTip = @"Total after tax and tip";
 - (void)viewDidUnload
 {
     [self setBillCostLabel:nil];
-    self.dataController = nil;
     [self setTaxCostLabel:nil];
     [self setTipCostLabel:nil];
     [self setTotalCostLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+}
+
+-(void)dealloc
+{
+    self.dataController=nil;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

@@ -60,6 +60,7 @@ static NSString *dataOriginalBillTotal = @"The bill total in the data model";
     [self setTaxLabel:nil];
     [self setTotalLabel:nil];
     [self setBillLabel:nil];
+    
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -71,30 +72,38 @@ static NSString *dataOriginalBillTotal = @"The bill total in the data model";
 }
 
 - (void) setDataController:(BillDataController *)dataController
-{
+{    
+    if(_dataController==dataController)
+        return;
+    
     if(_dataController)
     {
-        [dataController removeObserver:self forKeyPath:@"taxPercent" context:&dataTaxPercent];
-        [dataController removeObserver:self forKeyPath:@"tax" context:&dataTax];
-        [dataController removeObserver:self forKeyPath:@"taxAfterTaxBeforeTip" context:&dataTotalAfterTax];
-        [dataController removeObserver:self forKeyPath:@"totalBeforeTaxOrTip" context:&dataOriginalBillTotal];
-        _dataController = nil;
+        [_dataController removeObserver:self forKeyPath:@"taxPercent" context:&dataTaxPercent];
+        [_dataController removeObserver:self forKeyPath:@"tax" context:&dataTax];
+        [_dataController removeObserver:self forKeyPath:@"totalAfterTaxBeforeTip" context:&dataTotalAfterTax];
+        [_dataController removeObserver:self forKeyPath:@"totalBeforeTaxOrTip" context:&dataOriginalBillTotal];
+    }
+    
+    if(dataController)
+    {
+        [dataController addObserver:self forKeyPath:@"taxPercent" options:(NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew) context:&dataTaxPercent];
+        [dataController addObserver:self forKeyPath:@"tax" options:(NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew) context:&dataTax];
+        [dataController addObserver:self forKeyPath:@"totalAfterTaxBeforeTip" options:(NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew) context:&dataTotalAfterTax];
+        [dataController addObserver:self forKeyPath:@"totalBeforeTaxOrTip" options:(NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew) context:&dataOriginalBillTotal];
     }
     _dataController = dataController;
-    [dataController addObserver:self forKeyPath:@"taxPercent" options:(NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew) context:&dataTaxPercent];
-    [dataController addObserver:self forKeyPath:@"tax" options:(NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew) context:&dataTax];
-    [dataController addObserver:self forKeyPath:@"totalAfterTaxBeforeTip" options:(NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew) context:&dataTotalAfterTax];
-    [dataController addObserver:self forKeyPath:@"totalBeforeTaxOrTip" options:(NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew) context:&dataOriginalBillTotal];
+ }
+
+- (void)dealloc
+{
+    self.dataController = nil;
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    if(context == &dataTaxPercent)
-    {
+    if(context == &dataTaxPercent) {
         [self updateTaxPercent];
-    }
-    else if(context == &dataTax)
-    {
+    } else if(context == &dataTax) {
         [self updateTax];
     } else if(context == &dataTotalAfterTax) {
         [self updateTotalAfterTax];

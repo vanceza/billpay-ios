@@ -68,7 +68,7 @@
     {
         totalCostInCents += i.cost.inCents;
     }
-    Cost *ret = [[Cost alloc] initFromCostInCents:totalCostInCents]; 
+    Cost *ret = [[Cost alloc] initFromCostInCents:totalCostInCents];
     self.totalBeforeTaxOrTip = ret;
 }
 
