@@ -10,10 +10,13 @@
 #import "BillViewController.h"
 #import "BillDataController.h"
 
-@interface MasterViewController : UITableViewController
-@property (weak, nonatomic) IBOutlet UILabel *billCostLabel;
-@property (weak, nonatomic) IBOutlet UILabel *taxCostLabel;
-@property (weak, nonatomic) IBOutlet UILabel *tipCostLabel;
-@property (weak, nonatomic) IBOutlet UILabel *totalCostLabel;
+@interface MasterViewController : UIViewController <UIActionSheetDelegate, UITableViewDataSource, UITableViewDelegate>
+@property (weak, nonatomic) UILabel *billCostLabel;
+@property (weak, nonatomic) UILabel *taxCostLabel;
+@property (weak, nonatomic) UILabel *tipCostLabel;
+@property (weak, nonatomic) UILabel *totalCostLabel;
 @property (strong, nonatomic) BillDataController *dataController;
+- (IBAction)deletePressed:(id)sender;
+@property (weak, nonatomic) UIBarButtonItem *deleteButton;
+@property (weak, nonatomic) UIBarButtonItem *payButton;
 @end

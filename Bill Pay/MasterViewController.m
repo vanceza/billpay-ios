@@ -1,5 +1,5 @@
 //
-//  FinishViewControllerViewController.m
+//  MasterViewController.m
 //  Bill Pay
 //
 //  Created by Zachary Vance on 7/5/12.
@@ -10,6 +10,7 @@
 #import "BillViewController.h"
 #import "SlidingTaxPercentController.h"
 #import "SlidingTipPercent.h"
+#import "PayViewController.h"
 
 static NSString *mstrTotalBeforeTaxOrTip = @"Total before tax or tip";
 static NSString *mstrTax = @"Tax";
@@ -25,6 +26,8 @@ static NSString *mstrTotalAfterTaxAndTip = @"Total after tax and tip";
 @end
 
 @implementation MasterViewController
+@synthesize deleteButton = _deleteButton;
+@synthesize payButton = _payButton;
 @synthesize billCostLabel = _billCostLabel;
 @synthesize taxCostLabel = _taxCostLabel;
 @synthesize tipCostLabel = _tipCostLabel;
@@ -119,6 +122,8 @@ static NSString *mstrTotalAfterTaxAndTip = @"Total after tax and tip";
     [self setTaxCostLabel:nil];
     [self setTipCostLabel:nil];
     [self setTotalCostLabel:nil];
+    [self setDeleteButton:nil];
+    [self setPayButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -126,6 +131,46 @@ static NSString *mstrTotalAfterTaxAndTip = @"Total after tax and tip";
 -(void)dealloc
 {
     self.dataController=nil;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 4;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if([indexPath row]==0) {
+        static NSString *dynamicCellName = @"bill";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:dynamicCellName];
+        self.billCostLabel = cell.detailTextLabel;
+        [self updateTotalBeforeTaxOrTip];
+        return cell;
+    } else if([indexPath row]==1) {
+        static NSString *dynamicCellName = @"tax";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:dynamicCellName];
+        self.taxCostLabel = cell.detailTextLabel;
+        [self updateTax];
+        return cell;
+    } else if([indexPath row]==2) {
+        static NSString *dynamicCellName = @"tip";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:dynamicCellName];
+        self.tipCostLabel = cell.detailTextLabel;
+        [self updateTip];
+        return cell;
+    } else if([indexPath row]==3) {
+        static NSString *dynamicCellName = @"total";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:dynamicCellName];
+        self.totalCostLabel = cell.detailTextLabel;
+        [self updateTotalAfterTaxAndTip];
+        return cell;
+    } 
+    assert(false);
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -139,12 +184,27 @@ static NSString *mstrTotalAfterTaxAndTip = @"Total after tax and tip";
     } else if ([[segue identifier] isEqualToString:@"ChangeTip"]) {
         SlidingTipPercent *slidingController = (SlidingTipPercent *)[segue destinationViewController];
         slidingController.dataController = self.dataController;
+    } else if ([[segue identifier] isEqualToString:@"Pay"]) {
+        PayViewController *payController = (PayViewController *)[segue destinationViewController];        payController.dataController = self.dataController;
     }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (IBAction)deletePressed:(id)sender {
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Clear Bill" otherButtonTitles:nil];
+    [sheet showInView:self.view];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex==0)
+    {
+        [self.dataController removeAllObjects];
+    }
 }
 
 @end

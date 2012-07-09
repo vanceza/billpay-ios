@@ -14,6 +14,8 @@
 - (BillItem *)objectInListAtIndex:(NSInteger)theIndex;
 - (void)addBillItem:(BillItem *)item;
 - (void)addBillItemWithDollars:(NSInteger)dollars cents:(NSInteger)cents description:(NSString *) description;
+- (void)removeAllObjects;
+@property (nonatomic, readonly) BillItem *randomBillItem; // Guaranteed not to change unless the list of bill items changes.
 @property (nonatomic) NSDecimalNumber *taxPercent; //0.01 is 1%
 @property (nonatomic) NSDecimalNumber *tipPercent;
 @property (readonly, nonatomic) Cost *tax;

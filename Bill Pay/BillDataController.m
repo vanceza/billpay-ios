@@ -12,13 +12,31 @@
 @interface BillDataController ()
 - (void) initializeDefaultDataList;
 - (void)updateTotalBeforeTaxOrTip;
+- (void)updateRandomBillItem;
+- (void)billChanged;
 @property NSMutableArray *dataStore;
 @end
 
 @implementation BillDataController
 @synthesize dataStore = _dataStore;
-@synthesize totalBeforeTaxOrTip = _totalBeforeTaxOrTip;
-@synthesize taxPercent = _taxPercent, tipPercent=_tipPercent;
+@synthesize totalBeforeTaxOrTip = _totalBeforeTaxOrTip, randomBillItem = _randomBillItem, taxPercent = _taxPercent, tipPercent=_tipPercent;
+
+-(void) updateRandomBillItem
+{
+    if([self countOfList] > 0) {
+        NSInteger totalCostInCents = self.totalBeforeTaxOrTip.inCents;
+        NSInteger randomCent = arc4random_uniform(totalCostInCents)+1;
+        NSInteger i=0;
+        while(randomCent>=0)
+        {
+            randomCent-=[self objectInListAtIndex:i].cost.inCents;
+            i++;
+        }
+        _randomBillItem = [self objectInListAtIndex:i-1]; //TODO
+    } else {
+        _randomBillItem = nil;
+    }
+}
 
 - (id)init 
 {
@@ -35,7 +53,12 @@
 {
     NSMutableArray *list = [[NSMutableArray alloc] init];
     self.dataStore = list;
-    [self addBillItemWithDollars:1 cents:20 description:@"Description here"];
+    [self addBillItemWithDollars:1 cents:00 description:@"Sprite"];
+    [self addBillItemWithDollars:1 cents:50 description:@"Hot Tea"];
+    [self addBillItemWithDollars:2 cents:50 description:@"Fried Rice"];
+    [self addBillItemWithDollars:0 cents:75 description:@"Spring Roll"];
+    [self addBillItemWithDollars:4 cents:25 description:@"Lo Mein"];
+    [self updateRandomBillItem];
 }
          
 - (NSInteger) countOfList
@@ -48,10 +71,22 @@
     return [self.dataStore objectAtIndex:theIndex];
 }
 
+- (void)billChanged
+{
+    [self updateTotalBeforeTaxOrTip];
+    [self updateRandomBillItem];
+}
+
+- (void)removeAllObjects
+{
+    [self.dataStore removeAllObjects];
+    [self billChanged];
+}
+     
 - (void)addBillItem:(BillItem *)item
 {
     [self.dataStore addObject:item];
-    [self updateTotalBeforeTaxOrTip];
+    [self billChanged];
 }
 
 - (void)addBillItemWithDollars:(NSInteger)dollars cents:(NSInteger)cents description:(NSString *) description 
