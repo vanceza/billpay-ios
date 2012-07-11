@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B6016FB415AB884D0084EE76 /* EditBillItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6016FB315AB884D0084EE76 /* EditBillItemView.m */; };
 		B607E92A15AB50E6007AE947 /* PayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B607E92915AB50E6007AE947 /* PayViewController.m */; };
 		B638739B15A21D1C0055AC15 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B638739A15A21D1C0055AC15 /* UIKit.framework */; };
 		B638739D15A21D1C0055AC15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B638739C15A21D1C0055AC15 /* Foundation.framework */; };
@@ -41,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B6016FB215AB884D0084EE76 /* EditBillItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditBillItemView.h; sourceTree = "<group>"; };
+		B6016FB315AB884D0084EE76 /* EditBillItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditBillItemView.m; sourceTree = "<group>"; };
 		B607E92815AB50E6007AE947 /* PayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayViewController.h; sourceTree = "<group>"; };
 		B607E92915AB50E6007AE947 /* PayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayViewController.m; sourceTree = "<group>"; };
 		B638739615A21D1C0055AC15 /* Bill Pay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bill Pay.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +79,7 @@
 		B6AF782A15A62D4E00C5F635 /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		B6AF782C15A6370E00C5F635 /* Cost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cost.h; sourceTree = "<group>"; };
 		B6AF782D15A6370E00C5F635 /* Cost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cost.m; sourceTree = "<group>"; };
+		B6BB5EE415AE0C1400D482DF /* Bill Pay.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Bill Pay.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,9 +139,12 @@
 		B63873A015A21D1C0055AC15 /* Bill Pay */ = {
 			isa = PBXGroup;
 			children = (
+				B6BB5EE415AE0C1400D482DF /* Bill Pay.entitlements */,
 				B63873A915A21D1C0055AC15 /* AppDelegate.h */,
 				B63873AA15A21D1C0055AC15 /* AppDelegate.m */,
 				B63873AC15A21D1C0055AC15 /* MainStoryboard.storyboard */,
+				B6016FB215AB884D0084EE76 /* EditBillItemView.h */,
+				B6016FB315AB884D0084EE76 /* EditBillItemView.m */,
 				B607E92815AB50E6007AE947 /* PayViewController.h */,
 				B607E92915AB50E6007AE947 /* PayViewController.m */,
 				B63873AF15A21D1C0055AC15 /* AddViewController.h */,
@@ -309,6 +316,7 @@
 				B67AC32415A792FC0000C938 /* SlidingTaxPercentController.m in Sources */,
 				B67AC32D15A7C3830000C938 /* SlidingTipPercent.m in Sources */,
 				B607E92A15AB50E6007AE947 /* PayViewController.m in Sources */,
+				B6016FB415AB884D0084EE76 /* EditBillItemView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

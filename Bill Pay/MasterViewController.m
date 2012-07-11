@@ -28,6 +28,7 @@ static NSString *mstrTotalAfterTaxAndTip = @"Total after tax and tip";
 @implementation MasterViewController
 @synthesize deleteButton = _deleteButton;
 @synthesize payButton = _payButton;
+@synthesize tableView = _tableView;
 @synthesize billCostLabel = _billCostLabel;
 @synthesize taxCostLabel = _taxCostLabel;
 @synthesize tipCostLabel = _tipCostLabel;
@@ -124,6 +125,7 @@ static NSString *mstrTotalAfterTaxAndTip = @"Total after tax and tip";
     [self setTotalCostLabel:nil];
     [self setDeleteButton:nil];
     [self setPayButton:nil];
+    [self setTableView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -141,6 +143,12 @@ static NSString *mstrTotalAfterTaxAndTip = @"Total after tax and tip";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 4;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    NSIndexPath *currentlySelected = [self.tableView indexPathForSelectedRow];
+    [self.tableView deselectRowAtIndexPath:currentlySelected animated:NO];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

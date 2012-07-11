@@ -19,4 +19,5 @@
 - (IBAction)deletePressed:(id)sender;
 @property (weak, nonatomic) UIBarButtonItem *deleteButton;
 @property (weak, nonatomic) UIBarButtonItem *payButton;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end

@@ -9,8 +9,9 @@
 #import "BillViewController.h"
 #import "AddViewController.h"
 #import "MasterViewController.h"
+#import "EditBillItemView.h"
 
-@interface BillViewController () <AddViewControllerDelegate>
+@interface BillViewController () <AddViewControllerDelegate, EditBillItemDelegate>
 @end
 
 @implementation BillViewController
@@ -35,7 +36,11 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 
-- (void)finishViewControllerDidGoBack:(MasterViewController *)controller {
+- (void)cancelClicked:(MasterViewController *)controller {
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)editBillControllerCancelClicked:(EditBillItemView *)controller {
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
@@ -44,6 +49,9 @@
     if([[segue identifier] isEqualToString:@"AddMenuItem"]) {
         AddViewController *addController = (AddViewController *)[[[segue destinationViewController]viewControllers] objectAtIndex:0];
         addController.delegate = self;
+    } else if([[segue identifier] isEqualToString:@"EditMenuItem"]) {
+        EditBillItemView *editController = (EditBillItemView *)[[[segue destinationViewController] viewControllers] objectAtIndex:0];
+        editController.delegate = self;
     }
 }
 
