@@ -820,7 +820,11 @@
                                 <rect key="frame" x="0.0" y="372" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem systemItem="trash" id="M51-55-5mf"/>
+                                    <barButtonItem systemItem="trash" id="M51-55-5mf">
+                                        <connections>
+                                            <action selector="deleteClicked:" destination="IrL-Cv-gBJ" id="Gl0-ri-w9K"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -856,6 +860,70 @@
             <point key="canvasLocation" x="1176" y="73"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="AddViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelClicked:"/>
+                <relationship kind="action" name="doneClicked:"/>
+                <relationship kind="action" name="updateCost:"/>
+                <relationship kind="action" name="updateDescription:"/>
+                <relationship kind="outlet" name="doneButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="label" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="textFieldDescription" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="textFieldMoney" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="BillViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BillViewController.h"/>
+        </class>
+        <class className="EditBillItemView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EditBillItemView.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelPressed:"/>
+                <relationship kind="action" name="deleteClicked:"/>
+            </relationships>
+        </class>
+        <class className="MasterViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="deletePressed:"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="PayViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PayViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="newBill:"/>
+                <relationship kind="outlet" name="billWithTaxLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tipLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="totalLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="whoPaysCell" candidateClass="UITableViewCell"/>
+            </relationships>
+        </class>
+        <class className="SlidingTaxPercentController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SlidingTaxPercentController.h"/>
+            <relationships>
+                <relationship kind="action" name="sliderChanged:"/>
+                <relationship kind="outlet" name="billLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="taxLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="taxPercent" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="taxSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="totalLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="SlidingTipPercent" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SlidingTipPercent.h"/>
+            <relationships>
+                <relationship kind="action" name="sliderValueChanged:"/>
+                <relationship kind="outlet" name="billAmountLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tipAmountLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tipPercentLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tipPercentSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="totalAmountLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -13,7 +13,7 @@
 @end
 
 @implementation EditBillItemView
-@synthesize dataController = _dataController, delegate=_delegate;
+@synthesize data = _data, delegate=_delegate, deleteKey=_deleteKey;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -46,6 +46,14 @@
     return 1;
 }
 
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex==0)
+    {
+        [[self delegate] editBillControllerDeleted:self deleteKey:self.deleteKey];
+    }
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 2;
@@ -66,5 +74,10 @@
 
 - (IBAction)cancelPressed:(id)sender {
     [[self delegate] editBillControllerCancelled:self];
+}
+
+- (IBAction)deleteClicked:(id)sender {
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete Bill Item" otherButtonTitles:nil];
+    [sheet showInView:self.view];
 }
 @end

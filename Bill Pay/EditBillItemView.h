@@ -11,13 +11,15 @@
 
 @protocol EditBillItemDelegate;
 
-@interface EditBillItemView : UIViewController <UITableViewDataSource, UITableViewDelegate>
-@property (strong, nonatomic) BillDataController *dataController;
+@interface EditBillItemView : UIViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>
+@property (strong, nonatomic) BillItem *data;
 - (IBAction)cancelPressed:(id)sender;
+- (IBAction)deleteClicked:(id)sender;
 @property (weak, nonatomic) id <EditBillItemDelegate> delegate;
+@property (nonatomic) NSUInteger deleteKey;
 @end
 
 @protocol EditBillItemDelegate
 - (void)editBillControllerCancelled:(EditBillItemView *)controller;
-- (void)editBillControllerDeleted:(EditBillItemView *)controller;
+- (void)editBillControllerDeleted:(EditBillItemView *)controller deleteKey:(NSUInteger)deleteKey;
 @end

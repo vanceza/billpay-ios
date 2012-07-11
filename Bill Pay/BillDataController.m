@@ -82,6 +82,12 @@
     [self.dataStore removeAllObjects];
     [self billChanged];
 }
+
+- (void) removeObjectAtIndex:(NSUInteger)index
+{
+    [self.dataStore removeObjectAtIndex:index];
+    [self billChanged];
+}
      
 - (void)addBillItem:(BillItem *)item
 {

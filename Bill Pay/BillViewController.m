@@ -40,8 +40,15 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
-- (void)editBillControllerCancelClicked:(EditBillItemView *)controller {
+- (void)editBillControllerCancelled:(EditBillItemView *)controller {
     [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)editBillControllerDeleted:(EditBillItemView *)controller deleteKey:(NSUInteger)deleteKey
+{
+    [self dismissViewControllerAnimated:YES completion:NULL];
+    [self.dataController removeObjectAtIndex:deleteKey];
+    [[self tableView] reloadData];d
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -52,6 +59,9 @@
     } else if([[segue identifier] isEqualToString:@"EditMenuItem"]) {
         EditBillItemView *editController = (EditBillItemView *)[[[segue destinationViewController] viewControllers] objectAtIndex:0];
         editController.delegate = self;
+        NSInteger row = [[self.tableView indexPathForSelectedRow] row];
+        editController.data = [self.dataController objectInListAtIndex:row];
+        editController.deleteKey = row;
     }
 }
 
