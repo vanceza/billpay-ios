@@ -289,7 +289,7 @@
                         </prototypes>
                     </tableView>
                     <navigationItem key="navigationItem" title="Bill" id="z4W-ST-OCp">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="3m0-R2-nXX">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="3m0-R2-nXX">
                             <connections>
                                 <action selector="editClicked:" destination="dIa-eb-bOC" id="Szj-Lh-wmr"/>
                             </connections>

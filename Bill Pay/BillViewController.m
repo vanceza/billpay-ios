@@ -172,11 +172,15 @@
 }
 
 - (IBAction)editClicked:(id)sender {
+    //Yeah, yeah, there's a built-in button too
     if(self.editing) {
         self.editing = NO;
-        //self.editButton = 
+        self.editButton.style = UIBarButtonItemStyleBordered;
+        self.editButton.title = @"Edit";
     } else {
         [self setEditing:YES animated:YES];
+        self.editButton.style = UIBarButtonItemStyleDone;
+        self.editButton.title = @"Done";
     }
     [[self tableView] reloadData];
 }
