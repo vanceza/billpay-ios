@@ -13,6 +13,7 @@
 @end
 
 @implementation EditBillItemView
+//@synthesize navigationItem = _navigationItem;
 @synthesize data = _data, delegate=_delegate, deleteKey=_deleteKey;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -32,6 +33,7 @@
 
 - (void)viewDidUnload
 {
+    //[self setNavigationItem:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -63,9 +65,12 @@
 {
     if([indexPath row]==0) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cost"];
+        cell.detailTextLabel.text = self.data.cost.asString;
         return cell;
     } else if([indexPath row]==1) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"description"];
+        cell.detailTextLabel.text = self.data.description;
+        self.navigationItem.title = self.data.description;
         return cell;
     } else {
         assert(false);

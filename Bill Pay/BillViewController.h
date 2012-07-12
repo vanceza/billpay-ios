@@ -11,4 +11,6 @@
 
 @interface BillViewController : UITableViewController
 @property (strong, nonatomic) BillDataController *dataController;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *editButton;
+- (IBAction)editClicked:(id)sender;
 @end

@@ -17,6 +17,7 @@
 - (IBAction)deleteClicked:(id)sender;
 @property (weak, nonatomic) id <EditBillItemDelegate> delegate;
 @property (nonatomic) NSUInteger deleteKey;
+//@property (weak, nonatomic) IBOutlet UINavigationItem *navigationItem;
 @end
 
 @protocol EditBillItemDelegate

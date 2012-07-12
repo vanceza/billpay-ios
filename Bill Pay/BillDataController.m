@@ -83,6 +83,21 @@
     [self billChanged];
 }
 
+- (void)moveObjectFromIndex:(NSUInteger)from toIndex:(NSUInteger)to
+{
+    if(to != from)
+    {
+        id obj = [self.dataStore objectAtIndex:from];
+        [self.dataStore removeObjectAtIndex:from];
+        if(to < [self.dataStore count]) {
+            [self.dataStore insertObject:obj atIndex:to];
+        } else {
+            [self.dataStore addObject:obj];
+        }
+        [self billChanged];
+    }
+}
+
 - (void) removeObjectAtIndex:(NSUInteger)index
 {
     [self.dataStore removeObjectAtIndex:index];
